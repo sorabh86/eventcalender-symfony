@@ -86,3 +86,23 @@ router action file
 {% endblock %}
 
 ```
+
+## Database Configuration
+Folder app/config/parameters.yml change database_name, database_user, database_password.   
+We can use doctrine for creating database and tables. Doctrine is a basically a ORM that interact with database.
+```bash
+$ php bin/console doctrine:database:create
+Created database `eventcalender-symfony` for connection named default
+```
+For tables, we have to create an Entity File. for more help you can search google 'symfony doctrine' for extra commands.
+```bash
+$ php bin/console doctrine:generate:entity
+The Entity shortcut name: AppBundle:Entity_Name
+```
+Generate tables in database based on schema or Entity we generate
+```bash
+$ php bin/console doctrine:schema:update --force
+Updating database schema...
+Database schema updated successfully! "1" query was executed
+```
+

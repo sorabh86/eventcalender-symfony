@@ -17,15 +17,17 @@
         		</tr>
         	</thead>
         	<tbody>
+        		{% for event in events %}
         		<tr>
-        			<td>Event 1</td>
-        			<td>Category 1</td>
-        			<td>Day</td>
+        			<td>{{event.name}}</td>
+        			<td>{{event.category.name}}</td>
+        			<td>{{event.day|date('F j, Y, g:i a')}}</td>
         			<td>
-        				<a href="{{url('homepage')}}category/edit/1" class="btn btn-secondary">Edit</a>
-        				<a href="{{url('homepage')}}category/edit/1" class="btn btn-danger">Delete</a>
+        				<a href="{{url('homepage')}}category/edit/{{event.id}}" class="btn btn-secondary">Edit</a>
+        				<a href="{{url('homepage')}}category/edit/{{event.id}}" class="btn btn-danger">Delete</a>
         			</td>
         		</tr>
+        		{% endfor %}
         	</tbody>
         </table>
     </div>

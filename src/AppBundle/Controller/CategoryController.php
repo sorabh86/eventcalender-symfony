@@ -6,16 +6,22 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\BrowserKit\Response;
+use AppBundle\Entity\Cateogry;
 
 class CategoryController extends Controller {
     /**
      * @Route("/categories", name="category_list")
      */
     public function indexAction(Request $request)
-    {
-        // replace this example code with whatever you need
+    {  
+        // fetch query
+        $categories = $this->getDoctrine()
+            ->getRepository('AppBundle:Category')
+            ->findAll();
+
+        // render template
         return $this->render('category/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+            'categories' => $categories,
         ]);
     }
 

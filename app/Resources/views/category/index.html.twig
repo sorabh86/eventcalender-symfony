@@ -15,13 +15,15 @@
         		</tr>
         	</thead>
         	<tbody>
+        		{% for category in categories %}
         		<tr>
-        			<td>Category 1</td>
+        			<td>{{category.name}}</td>
         			<td>
-        				<a href="{{url('homepage')}}category/edit/1" class="btn btn-secondary">Edit</a>
-        				<a href="{{url('homepage')}}category/edit/1" class="btn btn-danger">Delete</a>
+        				<a href="{{url('homepage')}}category/edit/{{category.id}}" class="btn btn-secondary">Edit</a>
+        				<a href="{{url('homepage')}}category/edit/{{category.id}}" class="btn btn-danger">Delete</a>
         			</td>
         		</tr>
+        		{% endfor %}
         	</tbody>
         </table>
     </div>
