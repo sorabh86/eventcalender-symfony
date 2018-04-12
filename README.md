@@ -40,5 +40,49 @@ Composer list commands
 $ composer list
 ```
 
+## TWIG Template
+Twig is a php template engine that is used by symfony, just like most of others, i.e. blade, Mustache, Smarty, handlebars, etc.
 
+base file
+```html
+<html>
+<head>
+  <title>{% block title %}Welcome!{% endblock %}</title>
+  {% block stylesheets %}{% endblock %}
+</head>
+<body>
+  <header><header>
+  <div class="container">
+     {% block body %}{% endblock %}
+  </div>
+  <footer></footer>
+  {% block javascripts %}{% endblock %}
+</body>
+</html>
+```
 
+router action file
+```html
+<!-- include base template -->
+{% extends 'base.html.twig' %}
+
+<!-- this content replaced with body -->
+{% block body %}
+<div class="card">
+    <div class="card-header">
+        <h2 class="card-title">Title</h2>
+    </div>
+    <div class="card-body">
+        <p>Welcome to Event Calender</p>
+    </div>
+</div>
+{% endblock %}
+
+<!-- style block replacement -->
+{% block stylesheets %}
+<style>
+	body{font:'Verdana' 20px;}
+</style>
+{% endblock %}
+
+```
