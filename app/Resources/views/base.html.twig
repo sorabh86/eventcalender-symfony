@@ -1,13 +1,58 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('icon.png') }}" />
+    
+    <link rel="stylesheet" href="/bootstrap/4.1.0/css/bootstrap.min.css">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark box-shadow">
+            <div class="container">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="78px" height="100.8px" viewBox="0 0 78 100.8" xml:space="preserve" style="width:40px;height:40px;margin-right:10px"><path style="fill:#FFFFFF;" d="M25.6,33.5l17,18.5L28.2,68.7l23.3,14.6l-17.1,17.4h-30L2.6,49.3C2.2,37.6,1.4,21.1,0,0h48.7                L25.6,33.5z M59.4,3.9h-9.7l-5,7.2h14.7c6.3,0,11.4,5.1,11.4,11.4V79c0,6.3-5.1,11.4-11.4,11.4H48.8l-7,7.2h17.6                C69.7,97.6,78,89.2,78,79V22.5C78,12.2,69.7,3.9,59.4,3.9z M32.3,29.1l-2.9,4.1l2.8,3h26.9v-7.2H32.3z M42.1,47l2.7,3l1.8,2l-1.7,2l-0.2,0.2h14.4V47H42.1z M35.4,65l-2.6,3l6.6,4.1h19.8V65H35.4z"/></svg>
+                    <strong>Event Calender</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse mr-auto" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a href="{{url('homepage')}}" class="nav-link">HOME</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CATEGORIES</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="{{url('homepage')}}categories">List Category</a>
+                              <a class="dropdown-item" href="{{url('homepage')}}category/create">Create New</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">EVENTS</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="{{url('homepage')}}events">List Event</a>
+                              <a class="dropdown-item" href="{{url('homepage')}}event/create">Create New</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md">
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+    </div>
+
+    {% block javascripts %}{% endblock %}
+    <script src="/jquery/1.10.2/jquery.js"></script>
+    <script src="/bootstrap/4.1.0/js/bootstrap.js"></script>
+</body>
 </html>

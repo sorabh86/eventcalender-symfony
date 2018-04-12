@@ -1,1 +1,30 @@
-category_index
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="wrapper">
+    <div class="card">
+    <div class="card-header">
+        <h2 class="card-title">Categories</h2>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+        	<thead>
+        		<tr>
+        			<th>Category Name</th>
+        			<th></th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        		<tr>
+        			<td>Category 1</td>
+        			<td>
+        				<a href="{{url('homepage')}}category/edit/1" class="btn btn-secondary">Edit</a>
+        				<a href="{{url('homepage')}}category/edit/1" class="btn btn-danger">Delete</a>
+        			</td>
+        		</tr>
+        	</tbody>
+        </table>
+    </div>
+</div>
+</div>
+{% endblock %}
